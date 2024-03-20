@@ -32,7 +32,6 @@ def postRestaurants(restaurant_name, address, contact_number):
     restaurant_id = restaurant_name.lower().replace(' ', '_') + '_' + unix_time_stamp
 
     data = {
-        'posts_unix': "post_" +  unix_time_stamp,
         'address': address,
         'contact_number': contact_number,
     }
