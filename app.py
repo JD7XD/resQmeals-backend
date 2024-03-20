@@ -15,7 +15,10 @@ def hello_world():
 def post_restaurants():
     req = request.get_json()
     restaurant_name = req.get('restaurant_name')
-    return rn.postRestaurants(restaurant_name)
+    address = req.get('address')
+    contact_number = req.get('contact_number')
+    return rn.postRestaurants(restaurant_name, address, contact_number)
+
 
 # # main driver function
 if __name__ == '__main__':
