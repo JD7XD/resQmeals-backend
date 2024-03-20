@@ -26,14 +26,14 @@ def unix_time():
     round_unix_time = round(unix_timestamp)
     return str(round_unix_time)
 
-def postRestaurants(restaurant_name, address, contact_number):
+def postRestaurants(restaurant_name, seller_address, seller_contact_number):
     unix_time_stamp = unix_time()
 
     restaurant_id = restaurant_name.lower().replace(' ', '_') + '_' + unix_time_stamp
 
     data = {
-        'address': address,
-        'contact_number': contact_number,
+        'address': seller_address,
+        'contact_number': seller_contact_number,
     }
 
     db.child('restaurants').child(restaurant_id).set(data)
