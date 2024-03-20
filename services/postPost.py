@@ -40,7 +40,6 @@ def postPost(restaurant_id, food_name, item_quantity, claimer, status):
     return restaurant_id
 
 
-
 # def claim_post(restaurant_id, post_id, claimer):
 #     db.child('restaurants').child(restaurant_id).child('posts').child(post_id).update({'claimer': claimer})
 

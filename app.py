@@ -5,7 +5,7 @@ from services import postBuyer as pb
 from services import postPost as pp
 
 app = Flask(__name__)
-CORS(app)
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
 app.secret_key = 'secret'
 
@@ -38,13 +38,6 @@ def create_post_route(restaurant_id):
     claimer = req.get('claimer')
     status = req.get('status')
     return pp.postPost(restaurant_id, food_name, item_quantity, claimer, status)
-
-@app.after_request
-def apply_cors(response):
-    response.headers.add('Access-Control-Allow-Origin', '*')
-    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-    response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS')
-    return response
 
 # # main driver function
 if __name__ == '__main__':
