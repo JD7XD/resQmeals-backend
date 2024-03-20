@@ -6,6 +6,7 @@ from services import postPost as pp
 
 app = Flask(__name__)
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
+# CORS(app)
 
 app.secret_key = 'secret'
 

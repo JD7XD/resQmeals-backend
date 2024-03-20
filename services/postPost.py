@@ -4,6 +4,11 @@ from dotenv import load_dotenv
 import datetime
 import uuid
 
+from flask import Flask
+from flask_cors import CORS
+app = Flask(__name__)
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
+
 load_dotenv()
 
 firebaseConfig = {
@@ -37,7 +42,7 @@ def postPost(restaurant_id, food_name, item_quantity, claimer, status):
 
     db.child('restaurants').child(restaurant_id).child('posts').child(post_id).set(data)
 
-    return restaurant_id
+    return "restaurant_id"
 
 
 # def claim_post(restaurant_id, post_id, claimer):
