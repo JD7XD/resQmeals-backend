@@ -26,14 +26,13 @@ def unix_time():
     round_unix_time = round(unix_timestamp)
     return str(round_unix_time)
 
-def postRestaurants(restaurantName, restaurantAddress):
+def postRestaurants(restaurantName):
     unixTime = unix_time()
     restaurantId = restaurantName + '_' + unixTime
 
     data = {
         restaurantId: {
           "restaurantName": restaurantName,
-          "restaurantAddress" : restaurantAddress
         }
     }
     
