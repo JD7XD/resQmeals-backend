@@ -29,8 +29,8 @@ def post_buyer():
     buyer_contact_number = req.get('buyer_contact_number')
     return pb.postUser(buyer_name, buyer_address, buyer_contact_number)
 
-@app.route('/api/postPost', methods=['POST'])
-def create_post_route():
+@app.route('/api/<restaurant_id>/postPost', methods=['POST'])
+def create_post_route(restaurant_id):
     req = request.get_json()
     restaurant_id = req.get('restaurant_id')
     food_name = req.get('food_name')

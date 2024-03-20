@@ -38,4 +38,4 @@ def postRestaurants(restaurant_name, seller_address, seller_contact_number):
 
     db.child('restaurants').child(restaurant_id).set(data)
 
-    return "Restaurant posted successfully"
+    return restaurant_id
