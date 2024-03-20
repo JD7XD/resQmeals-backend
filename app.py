@@ -1,20 +1,23 @@
 from flask import Flask, request
-from flask_cors import CORS
+# from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 from services import postSeller as ps
 from services import postBuyer as pb
 from services import postPost as pp
 
 app = Flask(__name__)
-cors = CORS(app, resources={r"/*": {"origins": "*"}})
-# CORS(app)
+# cors = CORS(app, resources={r"/*": {"origins": "*"}})
+CORS(app, supports_credentials=True)
 
 app.secret_key = 'secret'
 
 @app.route('/')
+@cross_origin(supports_credentials=True)
 def hello_world():
     return "resQmeals backend!"
 
 @app.route('/api/postSeller', methods=['POST'])
+@cross_origin(supports_credentials=True)
 def post_seller():
     req = request.get_json()
     restaurant_name = req.get('restaurant_name')
@@ -23,6 +26,7 @@ def post_seller():
     return ps.postRestaurants(restaurant_name, seller_address, seller_contact_number)
 
 @app.route('/api/postBuyer', methods=['POST'])
+@cross_origin(supports_credentials=True)
 def post_buyer():
     req = request.get_json()
     buyer_name = req.get('buyer_name')
@@ -31,6 +35,7 @@ def post_buyer():
     return pb.postUser(buyer_name, buyer_address, buyer_contact_number)
 
 @app.route('/api/<restaurant_id>/postPost', methods=['POST'])
+@cross_origin(supports_credentials=True)
 def create_post_route(restaurant_id):
     req = request.get_json()
     restaurant_id = req.get('restaurant_id')

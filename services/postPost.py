@@ -4,11 +4,6 @@ from dotenv import load_dotenv
 import datetime
 import uuid
 
-from flask import Flask
-from flask_cors import CORS
-app = Flask(__name__)
-cors = CORS(app, resources={r"/*": {"origins": "*"}})
-
 load_dotenv()
 
 firebaseConfig = {
