@@ -37,7 +37,7 @@ def postPost(restaurant_id, food_name, item_quantity, claimer, status):
 
     db.child('restaurants').child(restaurant_id).child('posts').child(post_id).set(data)
 
-    return restaurant_id
+    return "Posted"
 
 
 # def claim_post(restaurant_id, post_id, claimer):
